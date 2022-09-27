@@ -1,9 +1,8 @@
 #include "Game.h"
-#include "Window.h"
-#include "Snake.h"
-#include "World.h"
 
 Game::Game() : m_window("Snake", sf::Vector2u(800, 600)), m_snake(m_world.GetBlockSize()), m_world(sf::Vector2u(800, 600)) {
+	m_textbox.Setup(5, 14, 350, sf::Vector2f(225, 0));
+	m_textbox.Add("Seeded random number generator with: " + std::to_string(time(NULL)));
 }
 
 Game::~Game() {
@@ -44,9 +43,12 @@ void Game::HandleInput() {
 void Game::Update() {
 	m_window.Update(); // Update window events.
 	if (timespent >= timestep) {
-		m_snake.Tick();
-		m_world.Update(m_snake);
-		if (m_snake.HasLost()) { m_snake.Reset(); }
+		m_snake.Tick(m_textbox);
+		m_world.Update(m_snake, m_textbox);
+		if (m_snake.HasLost()) { 
+			m_snake.Reset();
+			m_textbox.Add("GAME OVER! Score: " + std::to_string(m_snake.GetScore()));
+		}
 		timespent = 0;
 	}
 	else timespent++;
@@ -56,6 +58,7 @@ void Game::Render() {
 	m_window.BeginDraw(); // Clear.
 	m_world.Render(*m_window.GetRenderWindow());
 	m_snake.Render(*m_window.GetRenderWindow());
+	m_textbox.Render(*m_window.GetRenderWindow());
 	m_window.EndDraw(); // Display.
 }
 

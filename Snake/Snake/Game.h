@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include "World.h"
 #include "Snake.h"
+#include "TextBox.h"
 
 class Game
 {
@@ -23,5 +24,6 @@ private:
 	Snake m_snake;
 	float timespent;
 	float timestep = 750;
+	TextBox m_textbox;
 };
 

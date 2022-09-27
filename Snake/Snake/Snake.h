@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "TextBox.h"
 
 enum class Direction {
 	None,
@@ -40,11 +41,11 @@ public:
 	void Reset(); // Reset to starting position.
 	
 	void Move(); // Movement method
-	void Tick(); // Method for  cutting snake.
-	void Cut(int l_segments); // Method for cutting snake.
+	void Tick(TextBox &textbox); // Method for  cutting snake.
+	void Cut(int l_segments, TextBox& textbox); // Method for cutting snake.
 	void Render(sf::RenderWindow& l_window);
 private:
-	void CheckCollision(); // Checking for collisions.
+	void CheckCollision(TextBox& textbox); // Checking for collisions.
 
 	SnakeContainer m_snakeBody; // Segment vector.
 	int m_size; // Size of the graphics.

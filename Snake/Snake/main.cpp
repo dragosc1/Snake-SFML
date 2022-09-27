@@ -2,6 +2,7 @@
 #include "Game.h"
 
 int main() {
+	srand(time(nullptr));
 	Game game;
 	while (!game.GetWindow()->IsDone()) {
 		game.HandleInput();

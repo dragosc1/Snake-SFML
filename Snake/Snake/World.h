@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Snake.h"
+#include "TextBox.h"
 
 class World {
 public:
@@ -8,7 +9,7 @@ public:
 	~World();
 	int GetBlockSize();
 	void RespawnApple();
-	void Update(Snake& l_player);
+	void Update(Snake& l_player, TextBox& textbox);
 	void Render(sf::RenderWindow& l_window);
 private:
 	sf::Vector2u m_windowSize;

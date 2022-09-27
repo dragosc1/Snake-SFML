@@ -110,11 +110,11 @@ void Snake::Extend() {
 	}
 }
 
-void Snake::Tick() {
+void Snake::Tick(TextBox &textbox) {
 	if (m_snakeBody.empty()) { return; }
 	if (m_dir == Direction::None) { return; }
 	Move();
-	CheckCollision();
+	CheckCollision(textbox);
 }
 
 void Snake::Move() {
@@ -135,22 +135,23 @@ void Snake::Move() {
 	}
 }
 
-void Snake::CheckCollision() {
+void Snake::CheckCollision(TextBox &textbox) {
 	if (m_snakeBody.size() < 5) { return; }
 	SnakeSegment& head = m_snakeBody.front();
 	for (auto itr = m_snakeBody.begin() + 1; itr != m_snakeBody.end(); ++itr) 
 		if (itr->position == head.position) {
 			int segments = m_snakeBody.end() - itr;
-			Cut(segments);
+			Cut(segments, textbox);
 			break;
 		}
 }
 
-void Snake::Cut(int l_segments) {
+void Snake::Cut(int l_segments, TextBox &textbox) {
 	for (int i = 0; i < l_segments; ++i) {
 		m_snakeBody.pop_back();
 	}
 	--m_lives;
+	textbox.Add("Lives: " + std::to_string(m_lives));
 	if (!m_lives) { Lose(); return; }
 }
 

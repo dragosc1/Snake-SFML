@@ -37,10 +37,11 @@ void World::RespawnApple() {
 		m_item.y * m_blockSize);
 }
 
-void World::Update(Snake& l_player) {
+void World::Update(Snake& l_player, TextBox& textbox) {
 	if (l_player.GetPosition() == m_item) {
 		l_player.Extend();
 		l_player.IncreaseScore();
+		textbox.Add("You ate an apple. Score: " + std::to_string(l_player.GetScore()));
 		RespawnApple();
 	}
 	int gridSize_x = m_windowSize.x / m_blockSize;
