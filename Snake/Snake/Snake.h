@@ -1,6 +1,5 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-using SnakeContainer = std::vector<SnakeSegment>;
 
 enum class Direction {
 	None,
@@ -15,6 +14,8 @@ struct SnakeSegment {
 	sf::Vector2i position;
 };
 
+using SnakeContainer = std::vector<SnakeSegment>;
+
 class Snake
 {
 public:
@@ -22,7 +23,7 @@ public:
 	~Snake();
 
 	// Helper methods.
-	void SetDirections(Direction l_dir);
+	void SetDirection(Direction l_dir);
 	Direction GetDirection();
 	int GetSpeed();
 	sf::Vector2i GetPosition();

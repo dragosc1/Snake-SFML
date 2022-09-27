@@ -1,0 +1,16 @@
+﻿  Snake.cpp
+C:\Users\drago\Desktop\OOP\SFML Projects\Snake-SFML\Snake\Snake\Snake.cpp(6,53): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\drago\Desktop\OOP\SFML Projects\Snake-SFML\Snake\Snake\Snake.cpp(6,41): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\drago\Desktop\OOP\SFML Projects\Snake-SFML\Snake\Snake\Snake.cpp(145,20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\drago\Desktop\OOP\SFML Projects\Snake-SFML\Snake\Snake\Snake.cpp(144,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\drago\Desktop\OOP\SFML Projects\Snake-SFML\Snake\Snake\Snake.cpp(152,20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\drago\Desktop\OOP\SFML Projects\Snake-SFML\Snake\Snake\Snake.cpp(151,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Snake.vcxproj -> C:\Users\drago\Desktop\OOP\SFML Projects\Snake-SFML\Snake\Debug\Snake.exe
