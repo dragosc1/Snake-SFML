@@ -46,8 +46,8 @@ void Game::Update() {
 		m_snake.Tick(m_textbox);
 		m_world.Update(m_snake, m_textbox);
 		if (m_snake.HasLost()) { 
-			m_textbox.Add("GAME OVER! Score: " + std::to_string(m_snake.GetScore()));
 			m_snake.Reset();
+			m_textbox.Add("GAME OVER! Score: " + std::to_string(m_snake.GetScore()));
 		}
 		timespent = 0;
 	}
